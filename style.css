@@ -1,0 +1,80 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    background-color: black;
+}
+
+.Barra_Lateral{
+    display: flex;
+    width: 220px;
+    height: 100vh;
+    background-color: aliceblue;
+    flex-direction: column;
+    justify-content: space-between;
+    /* removido o position: fixed; (n entendi pq q tinha) */
+}
+
+.Sair{
+    width:50px;
+    background-color: #ff1c23;
+    border: none;
+    color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Sair:hover{
+    background-color: #e50914;
+}
+
+.Tela_Principal{
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 220px); /* mudado vh pra vw (eu so burro e falei errado) */
+    /* removido justify-content: center; pra mover pra cima o elemento */
+    align-items: center;
+    padding: 20px;
+}
+
+.Barra_Pesquisa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    border-radius: 25px;
+    padding: 5px 10px;
+    width: 400px;
+}
+
+.Barra_Pesquisa input{
+    flex: 1;
+    background: none;
+    border: none;
+    color: aliceblue;
+    outline: none;
+}
+
+.Lupa{
+    background: none;
+    border: none;
+    color: aliceblue
+}
+
+
+.filme_destaque{
+    margin-top: 30px;
+}
+
+.card-img{
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(107, 97, 97, 0.2);
+    width: 425px;
+    height: auto;
+}
