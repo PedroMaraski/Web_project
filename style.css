@@ -5,22 +5,73 @@ html, body{
 }
 
 body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url('imagens/tela_fundo.png') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
-    background-color: black;
 }
 
 .Barra_Lateral{
-    display: flex;
-    width: 220px;
+    width: 250px;
     height: 100vh;
-    background-color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.08); /* leve transparência */
+    backdrop-filter: blur(8px); /* dá um efeito de vidro */
+    box-shadow: 8px 0 25px rgba(0, 0, 0, 0.5); /* sombra lateral */
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* removido o position: fixed; (n entendi pq q tinha) */
+    padding: 20px;
+    position: fixed;
 }
 
-.Sair{
-    width:50px;
+.Primeira_opcao{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Primeira_opcao button {
+    margin-top: 10px;
+    border: none;
+    background: none; 
+    color: rgb(10, 10, 10); 
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: left; /* alinha o texto à esquerda, se quiser */
+}
+
+.Primeira_opcao button:hover {
+    color: #575454; /* muda a cor do texto no hover */
+}
+
+.Segunda_opcao{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Segunda_opcao button {
+    margin-top: 10px;
+    border: none;
+    background: none; 
+    color: rgb(10, 10, 10); 
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: left; /* alinha o texto à esquerda, se quiser */
+}
+
+.Segunda_opcao button:hover {
+    color: #575454; /* muda a cor do texto no hover */
+}
+
+.Sair {
+    width: 100px;
     background-color: #ff1c23;
     border: none;
     color: aliceblue;
@@ -28,17 +79,18 @@ body{
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    align-self: flex-start;  
+    margin-bottom: 50px;
 }
 
-.Sair:hover{
+.Sair:hover {
     background-color: #e50914;
 }
 
 .Tela_Principal{
     display: flex;
     flex-direction: column;
-    width: calc(100vw - 220px); /* mudado vh pra vw (eu so burro e falei errado) */
-    /* removido justify-content: center; pra mover pra cima o elemento */
+    width: calc(200vw - 250px); 
     align-items: center;
     padding: 20px;
 }
@@ -75,6 +127,6 @@ body{
 .card-img{
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(107, 97, 97, 0.2);
-    width: 425px;
-    height: auto;
+    width: 800px;
+    height: 300px;
 }
