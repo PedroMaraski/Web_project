@@ -26,6 +26,10 @@ body{
     position: fixed;
 }
 
+.Barra_Lateral_esquerda h1{
+    font-family: 'Chewy', Arial, sans-serif;
+}
+
 .Primeira_opcao{
     width: 100px;
     display: flex;
