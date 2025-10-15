@@ -4,135 +4,167 @@ html, body{
     box-sizing: border-box;
 }
 
+:root {
+  /* Tema claro (padrão) */
+  --cor-fundo: #f5f5f5;
+  --cor-texto: #111;
+  --cor-barra: rgba(255, 255, 255, 0.8);
+  --cor-sombra: rgba(0, 0, 0, 0.2);
+  --cor-destaque: #e50914;
+}
+
+[data-tema="escuro"] {
+  --cor-fundo: #0e0e0e;
+  --cor-texto: #fff;
+  --cor-barra: rgba(255, 255, 255, 0.05);
+  --cor-sombra: rgba(0, 0, 0, 0.8);
+  --cor-destaque: #e50914;
+}
+
 body{
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: url('imagens/tela_fundo.png') no-repeat center center fixed;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    transition: background 0.5s, color 0.5s;
+    font-family: 'Poppins', sans-serif;
     background-size: cover;
     display: flex;
 }
 
-.Barra_Lateral_esquerda{
-    width: 250px; 
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.08); 
-    backdrop-filter: blur(8px); 
-    box-shadow: 8px 0 25px rgba(0, 0, 0, 0.5); 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    position: fixed;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+  z-index: -1;
 }
+
+.Barra_Lateral_esquerda {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 230px;
+  height: 100vh;
+  background: var(--cor-barra);
+  backdrop-filter: blur(var(--blur-barra));
+  box-shadow: inset -1px 0 0 rgba(255,255,255,0.06), 4px 0 20px var(--cor-sombra);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 18px;
+  transition: background 0.4s, box-shadow 0.4s;
+  color: var(--cor-texto);
+}
+
+.tema-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--cor-texto);
+  padding: 6px;
+  border-radius: 8px;
+}
+.tema-btn:hover { color: var(--cor-destaque); transform: scale(1.05); }
 
 .Barra_Lateral_esquerda h1{
-    font-family: 'Chewy', Arial, sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 20px;
 }
 
-.Primeira_opcao{
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.Primeira_opcao, .Segunda_opcao {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.Primeira_opcao button {
-    margin-top: 10px;
-    border: none;
-    background: none; 
-    color: rgb(10, 10, 10); 
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: left; /* alinha o texto à esquerda, se quiser */
-}
-
-.Primeira_opcao button:hover {
-    color: #575454; /* muda a cor do texto no hover */
-}
-
-.Segunda_opcao{
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
+.Primeira_opcao button,
 .Segunda_opcao button {
-    margin-top: 10px;
-    border: none;
-    background: none; 
-    color: rgb(10, 10, 10); 
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: left; /* alinha o texto à esquerda, se quiser */
+  background: none;
+  border: none;
+  color: var(--cor-texto);
+  text-align: left;
+  font-size: 15px;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.12s;
 }
-
+.Primeira_opcao button:hover,
 .Segunda_opcao button:hover {
-    color: #575454; /* muda a cor do texto no hover */
+  color: var(--cor-destaque);
+  transform: translateX(6px);
 }
 
 .Sair {
-    width: 100px;
-    background-color: #ff1c23;
-    border: none;
-    color: aliceblue;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    align-self: flex-start;  
-    margin-bottom: 50px;
+  width: 100%;
+  background-color: var(--cor-destaque);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.Sair:hover { background-color: #b00610; }
+
+.Barra_Lateral_direita {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 120px;
+  height: 100vh;
+  background: var(--cor-barra);
+  backdrop-filter: blur(var(--blur-barra));
+  box-shadow: inset 1px 0 0 rgba(255,255,255,0.06), -4px 0 20px var(--cor-sombra);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 10px;
+  transition: background 0.4s, box-shadow 0.4s;
+  color: var(--cor-texto);
 }
 
-.Sair:hover {
-    background-color: #e50914;
+
+.Adicionar_Conta {
+  width: 56px;
+  height: 56px;
+  background-color: var(--cor-destaque);
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+.Adicionar_Conta:hover {
+  transform: scale(1.08);
 }
 
-.Barra_Lateral_direita{
-    position: absolute;
-    right: 0;
-    width: 120px; 
-    height: 100vh;
-    background-color: rgba(10, 10, 10, 0.08); 
-    backdrop-filter: blur(10px); 
-    box-shadow: 8px 0 25px rgba(255, 255, 255, 0.5); 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    position: fixed;
+button {
+  background-color: var(--cor-destaque);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.12s;
 }
+button:hover { background-color: #ff1c23; transform: translateY(-1px); }
 
-.Adicionar_Conta{
-    width: 60px;
-    height: 60px;
-    background-color: #ff1c23;
-    color: aliceblue;
-    border-radius: 50px;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    align-self: flex-start;  
-    margin-bottom: 50px;
-}
-
-.Adicionar_Conta:hover{
-    background-color: #e50914;
-}
-
-.Tela_Principal{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin-left: 250px;  /* espaço da barra lateral esquerda */
-    margin-right: 120px; /* espaço da barra lateral direita */
-    width: calc(100vw - 370px); /* 100% da largura menos as duas barras */
-    box-sizing: border-box;
+.Tela_Principal {
+  margin-left: 230px;
+  margin-right: 120px;
+  width: calc(100vw - 350px);
+  padding: 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .Barra_Pesquisa{
@@ -220,4 +252,12 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover; /* preenche o espaço sem distorcer */
+}
+
+body[data-tema="escuro"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top center, rgba(255,255,255,0.04), transparent 60%);
+  pointer-events: none;
 }
