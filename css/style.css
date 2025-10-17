@@ -42,107 +42,158 @@ body::before {
   z-index: -1;
 }
 
+/* ===== Barra lateral expansiva ===== */
 .Barra_Lateral_esquerda {
   position: fixed;
   left: 0;
   top: 0;
-  width: 230px;
+  width: 100px; /* ← aumenta um pouco a largura base */
   height: 100vh;
   background: var(--cor-barra);
   backdrop-filter: blur(var(--blur-barra));
-  box-shadow: inset -1px 0 0 rgba(255,255,255,0.06), 4px 0 20px var(--cor-sombra);
+  box-shadow: 4px 0 20px var(--cor-sombra);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 28px 18px;
-  transition: background 0.4s, box-shadow 0.4s;
+  align-items: center;
+  padding: 20px 10px;
+  overflow: hidden;
+  transition: width 0.3s ease;
   color: var(--cor-texto);
+  z-index: 100;
 }
 
-.tema-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: var(--cor-texto);
-  padding: 6px;
-  border-radius: 8px;
-}
-.tema-btn:hover { color: var(--cor-destaque); transform: scale(1.05); }
-
-.Barra_Lateral_esquerda h1{
-    font-size: 28px;
-    letter-spacing: 2px;
-    color: white;
-    margin-bottom: 20px;
+/* Quando passa o mouse: expande */
+.Barra_Lateral_esquerda:hover {
+  width: 230px;
 }
 
-.Primeira_opcao, .Segunda_opcao {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.Primeira_opcao button,
-.Segunda_opcao button {
-  background: none;
-  border: none;
-  color: var(--cor-texto);
-  text-align: left;
-  font-size: 15px;
-  padding: 8px 0;
-  cursor: pointer;
-  transition: color 0.2s, transform 0.12s;
-}
-.Primeira_opcao button:hover,
-.Segunda_opcao button:hover {
-  color: var(--cor-destaque);
-  transform: translateX(6px);
-}
-
-.Sair {
-  width: 100%;
-  background-color: var(--cor-destaque);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.Sair:hover { background-color: #b00610; }
-
-.Barra_Lateral_direita {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 120px;
-  height: 100vh;
-  background: var(--cor-barra);
-  backdrop-filter: blur(var(--blur-barra));
-  box-shadow: inset 1px 0 0 rgba(255,255,255,0.06), -4px 0 20px var(--cor-sombra);
+/* Parte superior (logo e itens) */
+.menu-superior {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 24px 10px;
-  transition: background 0.4s, box-shadow 0.4s;
+  justify-content: center; /* centraliza verticalmente todo o menu */
+}
+
+.logo {
+  font-size: 22px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateX(-15px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Aparece ao expandir */
+.Barra_Lateral_esquerda:hover .logo {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Itens do menu */
+.menu-itens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  width: 100%;
+  padding-left: 0; /* ← empurra levemente os ícones pra dentro */
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-decoration: none;
   color: var(--cor-texto);
+  font-size: 18px;
+  padding: 10px 0;
+  border-radius: 8px;
+  width: 100%;
+  transition: background 0.2s ease, transform 0.1s, justify-content 0.3s;
 }
 
 
-.Adicionar_Conta {
-  width: 56px;
-  height: 56px;
-  background-color: var(--cor-destaque);
-  color: #fff;
+/* Ícone */
+.item i {
+  font-size: 18px;
+  min-width: 24px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  overflow: visible;
+}
+
+/* Texto (span) invisível por padrão */
+.item span {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+/* Quando a barra expande */
+.Barra_Lateral_esquerda:hover .item {
+  justify-content: flex-start; /* ícone + texto à esquerda */
+  padding-left: 25px;
+}
+
+.Barra_Lateral_esquerda:hover .item span {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Efeito hover */
+.item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--cor-destaque);
+  transform: scale(1.05);
+}
+
+/* Parte inferior */
+.menu-inferior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.add {
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
+  background: var(--cor-destaque);
   border: none;
-  font-size: 28px;
+  color: #fff;
+  font-size: 22px;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
-.Adicionar_Conta:hover {
-  transform: scale(1.08);
+
+.add:hover {
+  transform: scale(1.1);
 }
+
+.Sair {
+  width: 70%;
+  background-color: var(--cor-destaque);
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.Barra_Lateral_esquerda:hover .Sair {
+  opacity: 1;
+}
+
 
 button {
   background-color: var(--cor-destaque);
@@ -156,8 +207,8 @@ button {
 button:hover { background-color: #ff1c23; transform: translateY(-1px); }
 
 .Tela_Principal {
-  margin-left: 230px;
-  margin-right: 120px;
+  margin-left: 80px;
+  transition: margin-left 0.3s ease;
   width: calc(100vw - 350px);
   padding: 28px;
   box-sizing: border-box;
@@ -165,6 +216,10 @@ button:hover { background-color: #ff1c23; transform: translateY(-1px); }
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+}
+
+.Barra_Lateral_esquerda:hover ~ .Tela_Principal {
+  margin-left: 230px;
 }
 
 .Barra_Pesquisa{
