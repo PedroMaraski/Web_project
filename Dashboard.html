@@ -5,33 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OLC</title>
     <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
 </head>
 <body>
 
-    <div  id="menu" class="Barra_Lateral_esquerda"> 
-        <div class="header">
-            <h1>OLC</h1>
-            <button id="toggle-tema">🌙</button>
-        </div>
-        <div class="Primeira_opcao">
-            <H3>Menu</H3>        
-            <button class="Navegar">Navegar</button>
-            <button class="Favoritos">Favoritos</button>
-            <button class="Em_Breve">Em breves</button>
+        <!-- Barra lateral esquerda -->
+    <aside class="Barra_Lateral_esquerda">
+        <div class="Barra-normal ativo">
+            <h1 class="logo">Arranja Meu Filme</h1>
+
+            <nav class="menu">
+                <a href="#" class="menu-itens">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Navegar</span>
+                </a>
+                <a href="#" class="menu-itens">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="#" id="abrir-config" class="menu-itens">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
+            </nav>
+
+            <div class="menu-inferior">
+                <button class="add"><i class="fa-solid fa-plus"></i></button>
+            </div>
         </div>
 
-        <div class="Segunda_opcao">
-            <h3>Social</h3>
-            <button class="Amigos">Amigos</button>
-            <button class="Conexões">Conexões</button>
-        </div>
-        
-        <button class="Sair" onclick="sair()">Sair</button>
-    </div>
+        <!-- BARRA DE CONFIGURAÇÕES -->
+        <div class="sidebar-config">
+            <h2>Configurações</h2>
 
-    <div id="menu" class="Barra_Lateral_direita">
-        <button class="Adicionar_Conta">+</button>
-    </div>
+            <div class="config-opcoes">
+            <button id="tema-btn">Alternar tema</button>
+            <button id="logout-btn" onclick="sair()">Sair</button>
+            </div>
+
+            <button class="voltar" id="voltar-btn">
+            <i class="fa-solid fa-arrow-left"></i> Voltar
+            </button>
+        </div>
+
+    </aside>
 
     <div id="menu" class="Tela_Principal">
         <div class="Barra_Pesquisa">
