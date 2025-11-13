@@ -47,7 +47,7 @@ body::before {
   position: fixed;
   left: 0;
   top: 0;
-  width: 100px; /* ← aumenta um pouco a largura base */
+  width: 100px; 
   height: 100vh;
   background: var(--cor-barra);
   backdrop-filter: blur(var(--blur-barra));
@@ -286,9 +286,9 @@ button:hover { background-color: #833d3d; transform: translateY(-1px); }
 }
 
 .Tela_Principal {
-  margin-left: 80px;
+  margin-left: 100px;
   transition: margin-left 0.3s ease;
-  width: calc(100vw - 350px);
+  width: calc(100vw - 350pxs);
   padding: 28px;
   box-sizing: border-box;
   display: flex;

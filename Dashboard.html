@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OLC</title>
     <link rel="stylesheet" href="css/style.css">
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 </head>
+
 <body>
 
-        <!-- Barra lateral esquerda -->
+    <!-- Barra lateral esquerda -->
     <aside class="Barra_Lateral_esquerda">
         <div class="Barra-normal ativo">
             <h1 class="logo">Arranja Meu Filme</h1>
@@ -42,12 +42,12 @@
             <h2>Configurações</h2>
 
             <div class="config-opcoes">
-            <button id="tema-btn">Alternar tema</button>
-            <button id="logout-btn" onclick="sair()">Sair</button>
+                <button id="tema-btn">Alternar tema</button>
+                <button id="logout-btn" onclick="sair()">Sair</button>
             </div>
 
             <button class="voltar" id="voltar-btn">
-            <i class="fa-solid fa-arrow-left"></i> Voltar
+                <i class="fa-solid fa-arrow-left"></i> Voltar
             </button>
         </div>
 
@@ -64,8 +64,8 @@
             </div>
         </a>
 
-        <h2>Catalogo</h2>  
-        <div class="Catalogo">
+        <h2>Catalogo</h2>
+        <div id="divFilmes" class="Catalogo">
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
                     <img src="midia/Carros_2_Pôster.jpg" alt="Filme 1">
@@ -103,67 +103,94 @@
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/The_Amazing_Spider-Man.jpg" alt="Filme 8">
+                    <img src="midia/The_Amazing_Spider-Man.jpg" alt="Filme 8">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/Superheroi_OFilme.jpg" alt="Filme 9">
+                    <img src="midia/Superheroi_OFilme.jpg" alt="Filme 9">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/Lego_Batman.jpg" alt="Filme 10">
+                    <img src="midia/Lego_Batman.jpg" alt="Filme 10">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/Inatividade_Paranormal.jpg" alt="Filme 11">
+                    <img src="midia/Inatividade_Paranormal.jpg" alt="Filme 11">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/pele-o-nascimento-de-uma-lenda.jpg" alt="Filme 12">
+                    <img src="midia/pele-o-nascimento-de-uma-lenda.jpg" alt="Filme 12">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/Sonic.jpg" alt="Filme 13">
+                    <img src="midia/Sonic.jpg" alt="Filme 13">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/Sharknado.jpg" alt="Filme 14">
+                    <img src="midia/Sharknado.jpg" alt="Filme 14">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/Tubarao_fantasma.jpg" alt="Filme 15">
+                    <img src="midia/Tubarao_fantasma.jpg" alt="Filme 15">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/Biscoito_Assasino.webp" alt="Filme 16">
+                    <img src="midia/Biscoito_Assasino.webp" alt="Filme 16">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/Incrivel_bulk.jpg" alt="Filme 17">
+                    <img src="midia/Incrivel_bulk.jpg" alt="Filme 17">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/DragonBall_evolution.jpg" alt="Filme 18">
+                    <img src="midia/DragonBall_evolution.jpg" alt="Filme 18">
                 </a>
             </div>
             <div class="Filme">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                <img src="midia/Vingadores_GuerraInfinita.jpg" alt="Filme 19">
+                    <img src="midia/Vingadores_GuerraInfinita.jpg" alt="Filme 19">
                 </a>
             </div>
         </div>
     </div>
-    
+
+    <script>
+
+        async function listarFilmes() {
+
+            var promise = await fetch("php/listarFilme.php", {
+                method: "GET"
+            }
+            );
+
+            var resultado = await promise.json();
+
+            var divFilmes = document.getElementById('divFilmes');
+
+
+            resultado.map(filme => {
+                divFilmes.innerHTML += `<div class="Filme">
+                    < a href = "${filme.youtubeURL}" >
+                        <img src="${filme.imagemURL}" alt="${filme.nome}">
+                        </a>
+            </div > `;
+            });
+        }
+        listarFilmes();
+
+    </script>
+
     <script src="js/Dashboard.js"></script>
 </body>
+
 </html>

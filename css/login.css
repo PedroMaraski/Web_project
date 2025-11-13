@@ -1,50 +1,179 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
   height: 100vh;
+  background-image:url("https://ik.imagekit.io/hlwgikb48/TelaDeFundo.login.jpg?updatedAt=1762980746858");
+  animation: fundo 10s infinite alternate ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('../imagens/tela_fundo.png') no-repeat center center fixed;
-  background-size: cover;
-  transition: opacity 0.8s ease; /* transição */
-  font-family: 'Poppins', sans-serif;
+  color: #fff;
 }
 
-body.fade-out {
-  opacity: 0;
+@keyframes fundo {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
-.container {  
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  padding: 40px;
-  border-radius: 15px;
+/* ====== CONTAINER PRINCIPAL ====== */
+.krl_container {
+  width: 900px;
+  height: 520px;
+  display: flex;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  color: white;
+  overflow: hidden;
 }
 
-input {
+/* ====== SEÇÃO DE LOGIN ====== */
+.login {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.login h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.login p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.login input {
   width: 100%;
-  margin: 10px 0;
-  padding: 10px;
+  height: 45px;
   border: none;
-  border-radius: 8px;
-  background-color: black;
-  color: white;
+  outline: none;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding-left: 15px;
+  font-size: 14px;
+  transition: 0.3s;
 }
 
-button {
-  background-color: #e50914;
-  color: white;
+.login input::placeholder{
+  color: #000000;
+}
+
+.login input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 5px #00bcd4;
+}
+
+/* Botão Entrar */
+.login button {
+  margin-top: 10px;
+  height: 45px;
+  background: linear-gradient(135deg, #00bcd4, #0066ff);
+  color: #fff;
+  font-weight: 600;
   border: none;
-  padding: 10px 30px;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-button:hover {
-  background-color: #ff1c23;
+.login button:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #00d1ff, #338aff);
+}
+
+/* CADASTRO / LOGIN */
+.cadastro {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cadastro h3 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+/* Botões alternativos (Google, Apple, etc.) */
+.login_alt {
+  width: 80%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.login_alt img {
+  height: 20px;
+}
+
+.login_alt:hover {
+  background: rgba(255, 255, 255, 0.15);
   transform: scale(1.05);
+}
+
+/* ====== TEXTO INFERIOR ====== */
+.register-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.register-text a {
+  color: #00bcd4;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 800px) {
+  .krl_container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .login, .cadastro {
+    width: 100%;
+    border: none;
+    padding: 40px 30px;
+  }
+
+  .login h2 {
+    text-align: center;
+  }
 }
