@@ -7,21 +7,70 @@
 
 body {
   height: 100vh;
-  background-image:url("https://ik.imagekit.io/hlwgikb48/TelaDeFundo.login.jpg?updatedAt=1762980746858");
-  animation: fundo 10s infinite alternate ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
+  overflow-x: hidden;
 }
 
-@keyframes fundo {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+.layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.chega {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fita {
+  width: 100vw;         /* duas cópias da imagem lado a lado */
+  height: 100%;
+  display: flex;
+  animation: slide 40s linear infinite;
+}
+
+.seg {
+  width: 50%;          /* metade da largura da fita */
+  height: 100%;
+  background-image: url("https://ik.imagekit.io/hlwgikb48/TelaDeFundo.login.jpg?updatedAt=1762980746858");
+  background-repeat: repeat-x;
+  background-size: auto 100%;  /* sem distorcer */
+  background-position: center;
+}
+
+/* loop perfeito: move metade da largura */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+.Background_container {
+  flex: 1;
+  background: #1a1a1d; 
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+  transform: translateX(70vw);  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
 /* ====== CONTAINER PRINCIPAL ====== */
-.krl_container {
+.Main_container {
   width: 900px;
   height: 520px;
   display: flex;
@@ -29,7 +78,10 @@ body {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+  overflow: hidden; 
+  position: relative;
+  z-index: 10;
+  
 }
 
 /* ====== SEÇÃO DE LOGIN ====== */
