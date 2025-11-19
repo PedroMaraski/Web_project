@@ -19,11 +19,16 @@ botaoEntrar.addEventListener('click', async () => {
         body: dados
     });
 
+    //verifica a validade do login
     const resultado = await resposta.json();
     console.log("Resposta do servidor:", resultado);
 
     // usuário não existe
     if (resultado.status === "nao_encontrado") {
+        function Sem_cadastro(){
+            alert("Nenhuma conta encontrada! Redirecionando para Registro...")
+        }
+        Sem_cadastro()
         console.log("Nenhuma conta encontrada! Redirecionando para Registro...");
         setTimeout(() => {
             window.location.href = "registro.html";
@@ -47,3 +52,7 @@ botaoEntrar.addEventListener('click', async () => {
         }, 800); //mesmo tempo da transição no CSS
     }
 });
+
+function Alerta_n_funcion(){
+    alert("Função não disponivel no momento (muito caro)")
+}

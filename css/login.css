@@ -32,10 +32,10 @@ body {
 }
 
 .fita {
-  width: 100vw;         /* duas cópias da imagem lado a lado */
+  width: 90vw;         /* duas cópias da imagem lado a lado */
   height: 100%;
   display: flex;
-  animation: slide 40s linear infinite;
+  animation: slide 20s linear infinite;
 }
 
 .seg {
@@ -62,7 +62,7 @@ body {
   flex: 1;
   background: #1a1a1d; 
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
-  transform: translateX(70vw);  
+  transform: translateX(17vw);  
   display: flex;
   justify-content: center;
   align-items: center;
