@@ -1,0 +1,86 @@
+
+.registro-container {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  position: relative;
+  z-index: 10;
+}
+
+
+
+/* FUNDO ANIMADO TIPO FITA */
+.chega {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none; /* importante: não bloqueia clique */
+}
+
+.fita {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: scrollFita 60s linear infinite;
+}
+
+.seg {
+  flex: 0 0 50%;
+  height: 100%;
+  background-image: url("https://ik.imagekit.io/hlwgikb48/TelaDeFundo.login.jpg?updatedAt=1762980746858");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: center;
+  filter: brightness(1.05);
+}
+
+@keyframes scrollFita {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.registro-form {
+width:360px;
+background:rgba(8, 8, 8, 0.658);
+padding:32px;
+border-radius:12px;
+backdrop-filter:blur(12px);
+color:#fff;
+display:flex;
+flex-direction:column;
+gap:14px;    
+box-shadow:0 0 20px rgba(3, 3, 3, 0.589);
+}
+
+
+.registro-form h2 { text-align:center; margin-bottom:10px; }
+
+
+.registro-form input {
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:rgba(255,255,255,0.08);
+color:#fff;
+font-size:14px;
+}
+
+
+.btn-registrar {
+padding:12px;
+border:none;
+border-radius:8px;
+background:linear-gradient(135deg,#00bcd4,#0066ff);
+color:#fff;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+.btn-registrar:hover { transform:scale(1.03); }
+
+
+.login-text { text-align:center; margin-top:10px; }
+.login-text a { color:#00bcd4; }
