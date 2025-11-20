@@ -36,3 +36,10 @@ if(mysqli_stmt_execute($stmt)){
         "mensagem" => "Erro ao registrar: " . mysqli_error($conexao)
     ]);
 }
+
+$email = trim($_POST["email"]);
+
+if (!preg_match("/.+@.+\.com$/", $email)) {
+    echo json_encode(["status" => "email_invalido"]);
+    exit;
+}

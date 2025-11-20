@@ -21,14 +21,14 @@
 
       <div class="Main_container">
         <div class="login">
-          <input type="email" id="email" name="email" placeholder="Email">
+          <input type="email" id="email" name="email" placeholder="Email" required pattern=".+@.+\.com$"/>
           <input type="password" id="senha" name="senha" placeholder="Senha">
 
           <button id="entrar" class="Entrar">Entrar</button>
         </div>
 
         <div class="cadastro">
-          <button class="login_alt" onclick="Alerta_n_funcion()"> 
+          <button class="login_alt" onclick="alerta_n_funcion()"> 
             <img src="midia/imagens/Google_logo.png" alt="loginGoogle">
             <span>Continuar com o Google</span>
 

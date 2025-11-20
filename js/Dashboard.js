@@ -66,3 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
     sidebarNormal.classList.add("ativo");
   });
 });
+function alerta_n_funcion(){
+    alert("Função não implementada ainda")
+}

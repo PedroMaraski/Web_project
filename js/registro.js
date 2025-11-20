@@ -47,7 +47,7 @@ if (botaoRegistrar) {
 
                 // redirecionamento após um tempo
                 setTimeout(() => {
-                    window.location.href = "Dashboard.html";
+                    window.location.href = "login.html";
                 }, 500);
 
             } else {
@@ -64,3 +64,5 @@ if (botaoRegistrar) {
 } else {
     console.log("Botão 'registrar' não encontrado.");
 }
+
+

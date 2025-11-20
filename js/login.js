@@ -53,6 +53,6 @@ botaoEntrar.addEventListener('click', async () => {
     }
 });
 
-function Alerta_n_funcion(){
-    alert("Função não disponivel no momento (muito caro)")
+function alerta_n_funcion(){
+    alert("Função não implementada ainda")
 }
